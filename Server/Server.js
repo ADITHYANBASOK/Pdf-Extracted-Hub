@@ -3,7 +3,8 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const cors = require("cors");
 
-const UploadRouter = require('./Src/Routers/FileuploadRouter')
+const UploadRouter = require('./Src/Routers/FileuploadRouter');
+const ExtractRouter = require('./Src/Routers/ExtractFileRouter');
 
 
 
@@ -33,7 +34,7 @@ app.use((req, res, next) => {
 
 
 app.use('/upload',UploadRouter)
-
+app.use('/extract',ExtractRouter)
 
 
 
