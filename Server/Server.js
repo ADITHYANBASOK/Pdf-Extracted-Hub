@@ -1,12 +1,16 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+const cors = require("cors");
+
 const UploadRouter = require('./Src/Routers/FileuploadRouter')
 
 
 
 
 const app = express()
+app.use(cors());
+app.use("/files", express.static("files"));
 
 
 app.use(express.urlencoded({extended:true}))

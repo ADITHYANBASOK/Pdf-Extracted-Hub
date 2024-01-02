@@ -11,3 +11,52 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+  margin: 3%;
+  flex-direction: column;
+}
+.formStyle {
+  padding: 20px;
+  border: 1px solid rgb(247, 5, 5);
+  width: 80%; /* Adjusted width for better responsiveness */
+  max-width: 400px; /* Set a maximum width for larger screens */
+  text-align: center;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  margin: 0 auto; /* Center the form horizontally */
+  box-shadow:  10px 5px 5px rgb(243, 2, 2);
+  border-radius: 20px;
+
+
+}
+
+.form-control {
+  border-color: black !important;
+  width: 100%; /* Make the input field take up the full width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  margin-bottom: 10px; /* Add spacing between input fields */
+  box-shadow:  5px 5px 5px black;
+  border-radius: 5px;
+}
+.Ubutton{
+  box-shadow:  5px 5px 5px rgb(34, 160, 218);
+  color:rgb(34, 160, 218); 
+  border: 2px solid rgb(34, 160, 218);;
+  border-radius: 10px;
+}
+
+
+
+
+
+.pdf-div{
+  padding: 50px;
+  background-color: #dedede;
+  margin-top: 50px;
+}
+canvas.react-pdf__Page__canvas {
+  margin-bottom: 50px;
+}

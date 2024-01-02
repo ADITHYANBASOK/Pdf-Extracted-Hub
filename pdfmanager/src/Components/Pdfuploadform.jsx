@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from "axios";
 import { pdfjs } from "react-pdf";
+import Uplodedfiles from './Uplodedfiles';
 
 
 
@@ -38,6 +39,8 @@ function Pdfuploadform() {
       };
   return (
     <>
+        <div className="App">
+
             <form className="formStyle" >
         <h4>Upload your Pdf for extracting</h4>
         <br />
@@ -59,6 +62,8 @@ function Pdfuploadform() {
           Upload
         </button>
       </form>
+      <Uplodedfiles/>
+      </div>
     </>
   )
 }

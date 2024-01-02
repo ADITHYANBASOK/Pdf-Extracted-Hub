@@ -34,6 +34,14 @@ UploadRouter.post("/upload-files", upload.single("file"), async (req, res) => {
     }
   });
 
+  UploadRouter.get("/get-files", async (req, res) => {
+    try {
+        UploadModel.find({}).then((data) => {
+        res.send({ status: "ok", data: data });
+      });
+    } catch (error) {}
+  });
+
 
 
 
