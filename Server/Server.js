@@ -5,6 +5,8 @@ const cors = require("cors");
 
 const UploadRouter = require('./Src/Routers/FileuploadRouter');
 const ExtractRouter = require('./Src/Routers/ExtractFileRouter');
+const SignUpRouter = require('./Src/Routers/SignUpRouter');
+const LoginRouter = require('./Src/Routers/LoginRouter');
 
 
 
@@ -35,6 +37,8 @@ app.use((req, res, next) => {
 
 app.use('/upload',UploadRouter)
 app.use('/extract',ExtractRouter)
+app.use('/Signup',SignUpRouter)
+app.use('/login',LoginRouter)
 
 
 

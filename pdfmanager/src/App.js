@@ -1,8 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Pdfuploadform from './Components/Pdfuploadform';
-import Extractedfiles from './Components/Extractedfiles';
+import Loginpage from './Pages/Loginpage';
+import SignUppage from './Pages/SignUppage';
+import UploadandExtractpdf from './Pages/UploadandExtractpdf';
+import Extractedpdfs from './Pages/Extractedpdfs';
 
 
 function App() {
@@ -10,8 +12,12 @@ function App() {
     <>
     <BrowserRouter>
     <Routes>
-      <Route path='/' element={<Pdfuploadform/>}/>
-      <Route path='/extract' element={<Extractedfiles/>}/>
+      <Route path='/' element={<UploadandExtractpdf/>}/>
+      <Route path='/extract' element={<Extractedpdfs/>}/>
+      <Route path='/login' element={<Loginpage/>}/>
+      <Route path='/signup' element={<SignUppage/>}/>
+
+
     </Routes>
     </BrowserRouter>
 
