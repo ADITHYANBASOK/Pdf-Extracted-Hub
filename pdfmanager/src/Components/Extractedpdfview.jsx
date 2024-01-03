@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+
 import { Document, Page } from "react-pdf";
+import downloadPdf from "../Pages/Downloadpdf";
 
 function Extractedpdfview(props) {
     const [numPages, setNumPages] = useState(null);
@@ -13,7 +15,7 @@ function Extractedpdfview(props) {
         const url = new URL(props.pdfFile);
         var filename = url.pathname.split('/').pop();
     //   const pdfFileName = 'your-pdf-file.pdf'; // Replace with the actual file name
-    //   downloadPdf(filename);
+      downloadPdf(filename);
     };
   return (
     <>

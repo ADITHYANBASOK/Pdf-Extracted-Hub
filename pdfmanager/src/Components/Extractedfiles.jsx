@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Extractedpdfview from './Extractedpdfview';
+import downloadPdf from '../Pages/Downloadpdf';
 function Extractedfiles() {
 
     const [allImage, setAllImage] = useState(null);
@@ -20,8 +21,15 @@ function Extractedfiles() {
         setPdfFile(`http://localhost:4000/files/${pdf}`)
         console.log("pdf",pdfFile)
       };
+      const handleDownload = (pdf) => {
+        //   const pdfFileName = 'your-pdf-file.pdf'; // Replace with the actual file name
+          downloadPdf(pdf);
+        };
+
   return (
     <>
+            <div className="App">
+
         <div className="uploaded">
         <h4>Extracted PDF:</h4>
         <div className="output-div">
@@ -39,7 +47,7 @@ function Extractedfiles() {
                       Show Pdf
                     </button>
                     <div>
-                  <button className='dbutton' >Download PDF</button>
+                  <button className='dbutton' onClick={()=>handleDownload(data.pdf)} >Download PDF</button>
                  </div>
                   </div>
                 );
@@ -49,6 +57,7 @@ function Extractedfiles() {
         </div>
         <Extractedpdfview pdfFile={pdfFile}/>
 
+      </div>
       </div>
     </>
   )
