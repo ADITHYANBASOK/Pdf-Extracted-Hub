@@ -48,6 +48,27 @@ code {
   border-radius: 10px;
 }
 
+.uploaded{
+  margin-top: 30px;
+ width: 100%;
+ text-align: center;
+
+}
+.output-div{
+  /* display: flex;  */
+  justify-content: start; 
+  padding-left: 10px;
+}
+.inner-div{
+  display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.dbutton{
+  margin-top: 10px;
+}
+
+
 
 
 

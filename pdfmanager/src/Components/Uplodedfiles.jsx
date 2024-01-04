@@ -13,12 +13,14 @@ function Uplodedfiles() {
     
     const [allImage, setAllImage] = useState(null);
     const [pdfFile, setPdfFile] = useState(null);
+    const token=localStorage.getItem('user_token')
+    const loginid=localStorage.getItem('u_login_id')
     
     useEffect(() => {
         getPdf();
       }, []);
       const getPdf = async () => {
-        const result = await axios.get('http://localhost:4000/upload/get-files');
+        const result = await axios.get(`http://localhost:4000/upload/get-files/${token}`);
         console.log(result.data.data);
         setAllImage(result.data.data);
       };

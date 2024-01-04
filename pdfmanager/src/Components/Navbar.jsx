@@ -16,19 +16,23 @@ function Navbar() {
       }
   return (
     <>
-              <div class="banner">
+ <div class="banner1">
 
 <div className="navbar">
-<img src="#" className="logo" />
+{/* <img src="#" className="logo" /> */}
+<h3 className='header'>PDF Extractor Hub</h3>
 <ul>
 <li>
 <a href="/">Home</a>
 </li>
 <li>
-<a href="#">Upload</a>
+<a href="/extract">Extract</a>
 </li>
 <li>
-<a href="/extract">Extracted file</a>
+<a href="/extractedfiles">Extracted file</a>
+</li>
+<li>
+<a href="/alluploadedfile">Uploaded files</a>
 </li>
 {token?
 <li>

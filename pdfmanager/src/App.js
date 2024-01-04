@@ -5,6 +5,8 @@ import Loginpage from './Pages/Loginpage';
 import SignUppage from './Pages/SignUppage';
 import UploadandExtractpdf from './Pages/UploadandExtractpdf';
 import Extractedpdfs from './Pages/Extractedpdfs';
+import Homepage from './Pages/Homepage';
+import AllUploadedFiles from './Pages/AllUploadedFiles';
 
 
 function App() {
@@ -12,10 +14,14 @@ function App() {
     <>
     <BrowserRouter>
     <Routes>
-      <Route path='/' element={<UploadandExtractpdf/>}/>
-      <Route path='/extract' element={<Extractedpdfs/>}/>
+      <Route path='/extract' element={<UploadandExtractpdf/>}/>
+      <Route path='/extractedfiles' element={<Extractedpdfs/>}/>
       <Route path='/login' element={<Loginpage/>}/>
       <Route path='/signup' element={<SignUppage/>}/>
+      <Route path='/' element={<Homepage/>}/>
+      <Route path='/alluploadedfile' element={<AllUploadedFiles/>}/>
+
+
 
 
     </Routes>

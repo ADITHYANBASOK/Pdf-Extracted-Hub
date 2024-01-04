@@ -4,17 +4,45 @@ import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function SignUp() {
-    const [input,setInput] = useState({})
+    const [input,setInput] = useState({
+        name:"",
+        email:"",
+        password:"",
+    })
 
     const inputchange = (e)=>{
         const name = e.target.name
         const value = e.target.value
         setInput({...input,[name]:value})
       }
+
+      const[formErrors,setFormErrors] = useState({});
+
+      const validate=(values)=>{
+          var error={}
+          const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+          if (!values.name) {
+            error.name = "First name is required!";
+          }
+  
+          if (!values.email) {
+              error.email = "email is required!";
+            }
+             else if (!regex.test(values.email)) {
+              error.email = "This is not a valid email format!";
+            }
+          if(!values.password){
+            error.password="enter password"
+          }
+          return error
+        }
+
       const Submit=(e)=>{
         console.log(input);
         e.preventDefault();
-        
+        setFormErrors(validate(input))
+        if(Object.keys(formErrors).length === 0){
+
     axios.post('http://localhost:4000/SignUp/registration',input).then((response)=>{ //register api
       console.log("res===========>",response.data);
       if(response.data.success===true){
@@ -35,6 +63,7 @@ function SignUp() {
       console.log(err);
     })
       }
+    }
   return (
     <>
     <ToastContainer/>
@@ -47,8 +76,10 @@ function SignUp() {
       <span className="icon">
         <ion-icon name="person" />
       </span>
-      <input type="text" placeholder="Name" required="" name='name' onChange={inputchange}
-/>
+      <input type="text" placeholder="Name" required="" name='name' onChange={inputchange}/>
+    <span style={{color:'red'}}>
+                    {formErrors?.name}
+                  </span>
     </div>
     <div className="input-box">
       <span className="icon">
@@ -56,6 +87,9 @@ function SignUp() {
       </span>
       <input type="email" placeholder="email" required="" name='email' onChange={inputchange}
 />
+     <span style={{color:'red'}}>
+                    {formErrors?.email}
+                  </span>
     </div>
     <div className="input-box">
       <span className="icon">
@@ -63,6 +97,9 @@ function SignUp() {
       </span>
       <input type="password" placeholder="password" required="" name='password' onChange={inputchange}
  />
+     <span style={{color:'red'}}>
+                    {formErrors?.password}
+                  </span>
     </div>
   
     <button type="submit" onClick={Submit}>SiGN Up</button>

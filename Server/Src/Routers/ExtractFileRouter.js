@@ -14,7 +14,7 @@ const path = require('path');
 const ExtractRouter = express.Router()
 
 
-ExtractRouter.post('/generate-pdf/:path', async (req, res) => {
+ExtractRouter.post('/generate-pdf/:path/:token/:id', async (req, res) => {
     const selectedPages = req.body.selectedPages;
     const paths=req.params.path
     console.log('why', JSON.stringify(paths));
@@ -48,7 +48,7 @@ ExtractRouter.post('/generate-pdf/:path', async (req, res) => {
       const newPdfBytes = await newPdfDoc.save();
       const uniqueId = uuidv4(); // Generate a unique identifier
   
-      await ExtractModel.create({  pdf: `new_${uniqueId}.pdf` });
+      await ExtractModel.create({  pdf: `new_${uniqueId}.pdf`,token:req.params.token,loginid:req.params.id });
   
   
   
@@ -63,14 +63,21 @@ ExtractRouter.post('/generate-pdf/:path', async (req, res) => {
   });
 
 
-  ExtractRouter.get("/getextracted-files", async (req, res) => {
+  ExtractRouter.get("/Recentlygetextracted-files/:token", async (req, res) => {
     try {
-        ExtractModel.find({}).then((data) => {
+        ExtractModel.find({token:req.params.token}).then((data) => {
         res.send({ status: "ok", data: data });
       });
     } catch (error) {}
   });
 
+  ExtractRouter.get("/Allgetextracted-files/:id", async (req, res) => {
+    try {
+        ExtractModel.find({loginid:req.params.id}).then((data) => {
+        res.send({ status: "ok", data: data });
+      });
+    } catch (error) {}
+  });
 
 
 

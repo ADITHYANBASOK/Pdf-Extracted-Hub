@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
 import { Document, Page } from "react-pdf";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function Extractuploadedfile(props) {
 
     const [numPages, setNumPages] = useState(null);
     const [selectedPages, setSelectedPages] = useState([]);
+
+    const token=localStorage.getItem('user_token')
+    const loginid=localStorage.getItem('u_login_id')
   
     const onDocumentLoadSuccess = ({ numPages }) => {
       setNumPages(numPages);
@@ -20,7 +25,7 @@ function Extractuploadedfile(props) {
     const generateNewPdf = async () => {
         try {
             console.log('adi',filename);
-          const response = await fetch(`http://localhost:4000/extract/generate-pdf/${filename}`, {
+          const response = await fetch(`http://localhost:4000/extract/generate-pdf/${filename}/${token}/${loginid}`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -32,8 +37,16 @@ function Extractuploadedfile(props) {
           const data = await response.json();
       
           if (data.status === 'ok') {
-            console.log('New PDF generated:', data.newPath);
-            // You can save or download the new PDF as needed
+            toast.success('pdf Extracted successfuliy', {
+              position: "top-center",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+              });                 // You can save or download the new PDF as needed
           } else {
             console.error('Error:', data.message);
           }

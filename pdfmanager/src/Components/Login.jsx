@@ -5,8 +5,30 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import '../Login.css'
 function Login() {
-    const [input,setInput] = useState({})
+    const [input,setInput] = useState({
+        email:"",
+        password:"",
+    })
     const navigate=useNavigate()
+
+    const[formErrors,setFormErrors] = useState({});
+
+    const validate=(values)=>{
+        var error={}
+        const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+        if (!values.email) {
+            error.email = "email is required!";
+          }
+           else if (!regex.test(values.email)) {
+            error.email = "This is not a valid email format!";
+          }
+        if(!values.password){
+          error.password="enter password"
+        }
+        return error
+      }
+
 
     const inputchange = (e)=>{
         const name = e.target.name
@@ -16,8 +38,12 @@ function Login() {
       const Submit=(e)=>{
         console.log(input);
         e.preventDefault();
+        setFormErrors(validate(input))
+        console.log("errors",formErrors);
+        if(Object.keys(formErrors).length === 0){
+
         
-        axios.post('http://localhost:5000/login/login',input).then((response)=>{
+        axios.post('http://localhost:4000/login/login',input).then((response)=>{
           console.log("res===========>",response.data);
           if(response.data.success===true){
 
@@ -44,6 +70,7 @@ function Login() {
           console.log(err);
         })
       }
+    }
   return (
     <>
     <ToastContainer/>
@@ -52,12 +79,19 @@ function Login() {
         <form action="">
             <h2>login</h2>
             <div class="input-box">
-                <span class="icon"><ion-icon name="person"></ion-icon></span>
-                <input type="email" name='email' placeholder="email" required onChange={inputchange}/>
+                {/* <span class="icon"><ion-icon name="person"></ion-icon></span> */}
+                <input type="email" name='email' placeholder="email" required onChange={inputchange}
+                />
+                  <span style={{color:'red'}}>
+                    {formErrors?.email}
+                  </span>
             </div>
             <div class="input-box">
-                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                {/* <span class="icon"><ion-icon name="lock-closed"></ion-icon></span> */}
                 <input type="password" name='password' placeholder="password" required onChange={inputchange}/>
+                <span style={{color:'red'}}>
+                    {formErrors?.password}
+                  </span>
             </div>
             <div class="forgot-pass">
                 <a href="#">forgot password? </a>
