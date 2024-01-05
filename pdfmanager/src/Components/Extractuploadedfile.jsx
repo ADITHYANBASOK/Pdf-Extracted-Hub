@@ -96,8 +96,11 @@ function Extractuploadedfile(props) {
     </Document>
     <div>
       <p>Selected Pages: {selectedPages.join(', ')}</p>
+      
     </div>
-    <button onClick={generateNewPdf}>create new pdf</button>
+    {props.pdfFile?
+    <button onClick={generateNewPdf}>Extract new pdf</button>
+    :null}
   </div>
     </>
   )

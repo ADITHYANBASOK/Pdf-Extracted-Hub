@@ -19,7 +19,8 @@ function Uplodedfiles() {
         console.log(result.data.data);
         setAllImage(result.data.data);
       };
-
+   
+      // Function to set the selected PDF file for display and extraction
       const showPdf = (pdf) => {
         setPdfFile(`http://localhost:4000/files/${pdf}`)
         console.log("pdf",pdfFile)
