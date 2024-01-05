@@ -15,7 +15,6 @@ function SignUp() {
         const value = e.target.value
         setInput({...input,[name]:value})
       }
-
       const[formErrors,setFormErrors] = useState({});
      
       // Validation function
@@ -42,6 +41,7 @@ function SignUp() {
         e.preventDefault();
         setFormErrors(validate(input))
         if(Object.keys(formErrors).length === 0){
+      if (input.name && input.email && input.password) {
 
     axios.post('http://localhost:4000/SignUp/registration',input).then((response)=>{
       console.log("res===========>",response.data);
@@ -63,6 +63,7 @@ function SignUp() {
       console.log(err);
     })
       }
+    }
     }
   return (
     <>

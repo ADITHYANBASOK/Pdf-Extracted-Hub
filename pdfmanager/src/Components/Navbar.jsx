@@ -17,7 +17,7 @@ function Navbar() {
       }
   return (
     <>
- <div class="banner1">
+ <div className="banner1">
 
 <div className="navbar">
 <h3 className='header'>PDF Extractor Hub</h3>
