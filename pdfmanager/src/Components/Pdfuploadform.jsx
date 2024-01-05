@@ -21,7 +21,6 @@ function Pdfuploadform() {
     const [file, setFile] = useState("");
     const token=localStorage.getItem('user_token')
     const loginid=localStorage.getItem('u_login_id')
-    console.log("hai",loginid);
     const navigate= useNavigate()
 
     const[formErrors,setFormErrors] = useState({});
@@ -35,8 +34,7 @@ function Pdfuploadform() {
         return error
       }
 
-    //   useEffect(() => {
-    // }, [title]);
+
 
     const submit = async (e) => {
         e.preventDefault();

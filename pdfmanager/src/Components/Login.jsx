@@ -52,7 +52,7 @@ function Login() {
             localStorage.setItem('useremail',response.data.useremail)
             localStorage.setItem('u_login_id',response.data.loginId)
             localStorage.setItem('user_token',response.data.token)
-            //toast
+
               toast.success('login successfuliy', {
                 position: "top-center",
                 autoClose: 5000,
@@ -75,29 +75,23 @@ function Login() {
     <>
     <ToastContainer/>
       <div className='container'>
-        <div class="wrapper">
+        <div className="wrapper">
         <form action="">
             <h2>login</h2>
-            <div class="input-box">
-                {/* <span class="icon"><ion-icon name="person"></ion-icon></span> */}
+            <div className="input-box">
                 <input type="email" name='email' placeholder="email" required onChange={inputchange}
                 />
-                  <span style={{color:'red'}}>
-                    {formErrors?.email}
-                  </span>
+                  <span style={{color:'red'}}>{formErrors?.email} </span>
             </div>
-            <div class="input-box">
-                {/* <span class="icon"><ion-icon name="lock-closed"></ion-icon></span> */}
+            <div className="input-box">
                 <input type="password" name='password' placeholder="password" required onChange={inputchange}/>
-                <span style={{color:'red'}}>
-                    {formErrors?.password}
-                  </span>
+                <span style={{color:'red'}}>{formErrors?.password}  </span>
             </div>
-            <div class="forgot-pass">
+            <div className="forgot-pass">
                 <a href="#">forgot password? </a>
             </div>
             <button type="submit"  onClick={Submit}>Login</button>
-            <div class="register-link">
+            <div className="register-link">
                 <p>Don't have an account?<a href="/signup">Register here</a></p>
             </div>
         </form>

@@ -100,7 +100,7 @@
 }
 .content button{
     width: 200px;
-    padding: 15px 0;
+    padding: 15px 2;
     text-align: center;
     margin: 20px 10px;
     border-radius: 25px;
@@ -112,7 +112,7 @@
     position: relative;
     overflow: hidden;
 }
-/* span{
+.content button span{
     height: 100%;
     width: 0;
     background: #009688;
@@ -122,7 +122,7 @@
     bottom: 0;
     z-index: -1;
     transition: .6s;
-} */
+}
 .content button:hover span{
     width: 100%;
 }

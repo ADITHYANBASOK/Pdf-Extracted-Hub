@@ -18,7 +18,6 @@ function Extractedfiles() {
         if(token && loginid){
         const result = await axios.get(`http://localhost:4000/extract/Recentlygetextracted-files/${token}`);
         const result2 = await axios.get(`http://localhost:4000/extract/Allgetextracted-files/${loginid}`);
-
         console.log(result.data.data);
         setAllImage(result.data.data);
         setExtractpdf(result2.data.data)
@@ -29,25 +28,22 @@ function Extractedfiles() {
       };
 
       const showPdf = (pdf) => {
-        // window.open(`http://localhost:5000/files/${pdf}`, "_blank", "noreferrer");
         setPdfFile(`http://localhost:4000/files/${pdf}`)
         console.log("pdf",pdfFile)
       };
       const handleDownload = (pdf) => {
-        //   const pdfFileName = 'your-pdf-file.pdf'; // Replace with the actual file name
           downloadPdf(pdf);
         };
 
   return (
     <>
-            <div className="App">
+    <div className="App">
 
-        <div className="uploaded">
-            <div>
-                {allImage.length?
+    <div className="uploaded">
+    <div>
+        {allImage.length?
         <h4>Recently Extracted PDF:</h4>
         :null}
-
         <div className="output-div">
             <div className='row'>
           {allImage == null

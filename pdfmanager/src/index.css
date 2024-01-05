@@ -22,11 +22,11 @@ code {
 .formStyle {
   padding: 20px;
   border: 1px solid rgb(247, 5, 5);
-  width: 80%; /* Adjusted width for better responsiveness */
-  max-width: 400px; /* Set a maximum width for larger screens */
+  width: 80%; 
+  max-width: 400px; 
   text-align: center;
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  margin: 0 auto; /* Center the form horizontally */
+  box-sizing: border-box; 
+  margin: 0 auto; 
   box-shadow:  10px 5px 5px rgb(243, 2, 2);
   border-radius: 20px;
 
@@ -35,9 +35,9 @@ code {
 
 .form-control {
   border-color: black !important;
-  width: 100%; /* Make the input field take up the full width */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  margin-bottom: 10px; /* Add spacing between input fields */
+  width: 100%;
+  box-sizing: border-box; 
+  margin-bottom: 10px; 
   box-shadow:  5px 5px 5px black;
   border-radius: 5px;
 }
@@ -55,7 +55,6 @@ code {
 
 }
 .output-div{
-  /* display: flex;  */
   justify-content: start; 
   padding-left: 10px;
 }
@@ -67,10 +66,6 @@ code {
 .dbutton{
   margin-top: 10px;
 }
-
-
-
-
 
 
 .pdf-div{

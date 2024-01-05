@@ -28,7 +28,6 @@ UploadRouter.post("/upload-files/:token/:id", upload.single("file"), async (req,
     const fileName = req.file.filename;
     const token=req.params.token;
     const loginid=req.params.id;
-    console.log("haha",loginid);
     try {
       await UploadModel.create({ title: title, pdf: fileName,loginid:loginid,token:token });
       res.send({ status: "ok" });

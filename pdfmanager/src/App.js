@@ -1,5 +1,3 @@
-import logo from './logo.svg';
-import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Loginpage from './Pages/Loginpage';
 import SignUppage from './Pages/SignUppage';
@@ -20,9 +18,6 @@ function App() {
       <Route path='/signup' element={<SignUppage/>}/>
       <Route path='/' element={<Homepage/>}/>
       <Route path='/alluploadedfile' element={<AllUploadedFiles/>}/>
-
-
-
 
     </Routes>
     </BrowserRouter>

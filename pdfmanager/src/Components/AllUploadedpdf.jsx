@@ -19,7 +19,6 @@ function AllUploadedpdf() {
     }
       };
       const handleDownload = (pdf) => {
-        //   const pdfFileName = 'your-pdf-file.pdf'; // Replace with the actual file name
           downloadPdf(pdf);
         };
 

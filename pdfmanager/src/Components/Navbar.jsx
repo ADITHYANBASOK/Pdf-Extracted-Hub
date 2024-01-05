@@ -5,6 +5,7 @@ function Navbar() {
     const navigate=useNavigate()
     const token=localStorage.getItem('user_token')
     const Logout = ()=>{
+        //remove data from local strorage
         localStorage.removeItem('useremail')
         localStorage.removeItem('u_login_id')
         localStorage.removeItem('user_token')
@@ -19,7 +20,6 @@ function Navbar() {
  <div class="banner1">
 
 <div className="navbar">
-{/* <img src="#" className="logo" /> */}
 <h3 className='header'>PDF Extractor Hub</h3>
 <ul>
 <li>

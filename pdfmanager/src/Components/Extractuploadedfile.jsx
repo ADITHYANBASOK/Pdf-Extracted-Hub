@@ -13,7 +13,7 @@ function Extractuploadedfile(props) {
     const onDocumentLoadSuccess = ({ numPages }) => {
       setNumPages(numPages);
     };
-    console.log("ardra",props.pdfFile);
+
     if(props.pdfFile){
     const url = new URL(props.pdfFile);
     var filename = url.pathname.split('/').pop();
@@ -24,7 +24,6 @@ function Extractuploadedfile(props) {
 
     const generateNewPdf = async () => {
         try {
-            console.log('adi',filename);
           const response = await fetch(`http://localhost:4000/extract/generate-pdf/${filename}/${token}/${loginid}`, {
             method: 'POST',
             headers: {
@@ -46,7 +45,7 @@ function Extractuploadedfile(props) {
               draggable: true,
               progress: undefined,
               theme: "colored",
-              });                 // You can save or download the new PDF as needed
+              });                 
           } else {
             console.error('Error:', data.message);
           }

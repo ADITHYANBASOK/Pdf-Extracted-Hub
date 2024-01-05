@@ -17,8 +17,6 @@ const ExtractRouter = express.Router()
 ExtractRouter.post('/generate-pdf/:path/:token/:id', async (req, res) => {
     const selectedPages = req.body.selectedPages;
     const paths=req.params.path
-    console.log('why', JSON.stringify(paths));
-    console.log('hello',selectedPages);
     const existingPdfPath = `./files/${paths}`; // Set the path to your existing PDF
   
   
@@ -26,15 +24,12 @@ ExtractRouter.post('/generate-pdf/:path/:token/:id', async (req, res) => {
     try {
       const existingPdfBytes = await fs.readFile(existingPdfPath);
   
-      console.log('mmm',existingPdfBytes);
       const pdfDoc = await PDFDocument.load(existingPdfBytes);
-      console.log('hhh',pdfDoc);
   
   
   
       const newPdfDoc = await PDFDocument.create();
   
-      console.log('ccc',newPdfDoc);
   
   
   
@@ -42,11 +37,10 @@ ExtractRouter.post('/generate-pdf/:path/:token/:id', async (req, res) => {
         const [copiedPage] = await newPdfDoc.copyPages(pdfDoc, [pageNumber - 1]);
         newPdfDoc.addPage(copiedPage);
       }
-      console.log('ddd',newPdfDoc);
   
   
       const newPdfBytes = await newPdfDoc.save();
-      const uniqueId = uuidv4(); // Generate a unique identifier
+      const uniqueId = uuidv4();  // Generate a unique identifier
   
       await ExtractModel.create({  pdf: `new_${uniqueId}.pdf`,token:req.params.token,loginid:req.params.id });
   

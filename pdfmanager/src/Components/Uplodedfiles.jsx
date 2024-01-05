@@ -14,7 +14,6 @@ function Uplodedfiles() {
     const [allImage, setAllImage] = useState(null);
     const [pdfFile, setPdfFile] = useState(null);
     const token=localStorage.getItem('user_token')
-    const loginid=localStorage.getItem('u_login_id')
     
     useEffect(() => {
         getPdf();
@@ -26,8 +25,6 @@ function Uplodedfiles() {
       };
 
       const showPdf = (pdf) => {
-        // window.open(`http://localhost:4000/files/${pdf}`, "_blank", "noreferrer");
-        console.log('pdfff',pdf)
         setPdfFile(`http://localhost:4000/files/${pdf}`)
         console.log("pdf",pdfFile)
       };
@@ -46,11 +43,6 @@ function Uplodedfiles() {
                     <button
                       className="btn btn-info"
                       onClick={() => showPdf(data.pdf)}
-                    >
-                      Show Pdf
-                    </button>
-                    <button
-                      className="btn btn-primary"
                     >
                       extract Pdf
                     </button>

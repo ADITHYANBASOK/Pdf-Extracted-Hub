@@ -38,12 +38,11 @@ function SignUp() {
         }
 
       const Submit=(e)=>{
-        console.log(input);
         e.preventDefault();
         setFormErrors(validate(input))
         if(Object.keys(formErrors).length === 0){
 
-    axios.post('http://localhost:4000/SignUp/registration',input).then((response)=>{ //register api
+    axios.post('http://localhost:4000/SignUp/registration',input).then((response)=>{
       console.log("res===========>",response.data);
       if(response.data.success===true){
         
@@ -73,33 +72,19 @@ function SignUp() {
   <form action="">
     <h2>Sign-Up</h2>
     <div className="input-box">
-      <span className="icon">
-        <ion-icon name="person" />
-      </span>
+
       <input type="text" placeholder="Name" required="" name='name' onChange={inputchange}/>
-    <span style={{color:'red'}}>
-                    {formErrors?.name}
-                  </span>
+    <span style={{color:'red'}}> {formErrors?.name} </span>
     </div>
     <div className="input-box">
-      <span className="icon">
-        <ion-icon name="person" />
-      </span>
-      <input type="email" placeholder="email" required="" name='email' onChange={inputchange}
-/>
-     <span style={{color:'red'}}>
-                    {formErrors?.email}
-                  </span>
+
+      <input type="email" placeholder="email" required="" name='email' onChange={inputchange}/>
+     <span style={{color:'red'}}>{formErrors?.email} </span>
     </div>
     <div className="input-box">
-      <span className="icon">
-        <ion-icon name="lock-closed" />
-      </span>
-      <input type="password" placeholder="password" required="" name='password' onChange={inputchange}
- />
-     <span style={{color:'red'}}>
-                    {formErrors?.password}
-                  </span>
+
+      <input type="password" placeholder="password" required="" name='password' onChange={inputchange}/>
+     <span style={{color:'red'}}>  {formErrors?.password}</span>
     </div>
   
     <button type="submit" onClick={Submit}>SiGN Up</button>
