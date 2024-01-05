@@ -17,7 +17,8 @@ function SignUp() {
       }
 
       const[formErrors,setFormErrors] = useState({});
-
+     
+      // Validation function
       const validate=(values)=>{
           var error={}
           const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -45,7 +46,7 @@ function SignUp() {
     axios.post('http://localhost:4000/SignUp/registration',input).then((response)=>{
       console.log("res===========>",response.data);
       if(response.data.success===true){
-        
+        // success toast message 
           toast.success('registered successfuliy', {
             position: "top-center",
             autoClose: 5000,
@@ -74,17 +75,17 @@ function SignUp() {
     <div className="input-box">
 
       <input type="text" placeholder="Name" required="" name='name' onChange={inputchange}/>
-    <span style={{color:'red'}}> {formErrors?.name} </span>
+    <span> {formErrors?.name} </span>
     </div>
     <div className="input-box">
 
       <input type="email" placeholder="email" required="" name='email' onChange={inputchange}/>
-     <span style={{color:'red'}}>{formErrors?.email} </span>
+     <span>{formErrors?.email} </span>
     </div>
     <div className="input-box">
 
       <input type="password" placeholder="password" required="" name='password' onChange={inputchange}/>
-     <span style={{color:'red'}}>  {formErrors?.password}</span>
+     <span>  {formErrors?.password}</span>
     </div>
   
     <button type="submit" onClick={Submit}>SiGN Up</button>

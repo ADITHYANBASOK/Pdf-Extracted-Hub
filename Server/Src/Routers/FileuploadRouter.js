@@ -7,19 +7,22 @@ const multer = require("multer");
 
 const UploadRouter = express.Router()
 
-
+// Configuring multer for file upload
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
+      // Specify the destination directory for storing uploaded files
       cb(null, "./files");
     },
     filename: function (req, file, cb) {
+      // Generate a unique filename using the current timestamp and the original filename
       const uniqueSuffix = Date.now();
       cb(null, uniqueSuffix + file.originalname);
     },
   });
 
 
-  const upload = multer({ storage: storage });
+  const upload = multer({ storage: storage });  // Configuring multer with the specified storage options
+
 
 
 UploadRouter.post("/upload-files/:token/:id", upload.single("file"), async (req, res) => {

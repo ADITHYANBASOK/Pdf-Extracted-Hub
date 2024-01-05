@@ -7,10 +7,6 @@ const path = require('path');
 
 
 
-
-
-
-
 const ExtractRouter = express.Router()
 
 
@@ -19,20 +15,20 @@ ExtractRouter.post('/generate-pdf/:path/:token/:id', async (req, res) => {
     const paths=req.params.path
     const existingPdfPath = `./files/${paths}`; // Set the path to your existing PDF
   
-  
-  
     try {
-      const existingPdfBytes = await fs.readFile(existingPdfPath);
+      const existingPdfBytes = await fs.readFile(existingPdfPath);     // Read the bytes of the existing PDF
+
   
-      const pdfDoc = await PDFDocument.load(existingPdfBytes);
-  
-  
-  
-      const newPdfDoc = await PDFDocument.create();
+      const pdfDoc = await PDFDocument.load(existingPdfBytes);   // Load the existing PDF document
   
   
   
+      const newPdfDoc = await PDFDocument.create();      // Create a new PDF document
+
   
+  
+  
+      // Copy selected pages from the existing PDF to the new PDF
       for (const pageNumber of selectedPages) {
         const [copiedPage] = await newPdfDoc.copyPages(pdfDoc, [pageNumber - 1]);
         newPdfDoc.addPage(copiedPage);

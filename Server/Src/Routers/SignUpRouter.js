@@ -8,6 +8,7 @@ const SignUpRouter = express.Router();
 
 SignUpRouter.post('/registration', async (req, res) => {
     try {
+        // Check if the user with the provided email already exists
         const olduser = await LoginModel.findOne({ email: req.body.email });
         if (olduser) {
             return res.status(400).json({
@@ -16,7 +17,7 @@ SignUpRouter.post('/registration', async (req, res) => {
                 message: 'user already exists'
             });
         }
-
+        // Hash the provided password
         const hashedpassword = await bcrypt.hash(req.body.password, 12);
 
         let log = {

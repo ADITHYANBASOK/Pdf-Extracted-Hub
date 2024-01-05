@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 
-
+// Set the worker source for pdfjs
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
     "pdfjs-dist/build/pdf.worker.min.js",
     import.meta.url
@@ -24,7 +24,8 @@ function Pdfuploadform() {
     const navigate= useNavigate()
 
     const[formErrors,setFormErrors] = useState({});
-
+  
+    // Validation function
     const validate=(values)=>{
         var error={}
 
@@ -96,9 +97,7 @@ function Pdfuploadform() {
           name='title'
           required
           onChange={(e) => setTitle(e.target.value)} />
-              <span style={{color:'red'}}>
-                    {formErrors?.title}
-                  </span>
+        <span>{formErrors?.title}</span>
         <br />
         <input
           type="file"

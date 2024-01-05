@@ -29,13 +29,14 @@ LoginRouter.post('/login', async (req, res) => {
           .status(400)
           .json({ success: false, error: true, message: 'Incorrect password' });
 
+      // Generate a JSON Web Token (JWT) for user authentication
       const token = jwt.sign(
         {
           userId: oldUser._id,
           useremail: oldUser.email,
         },
         'secret_this_should_be_longer',      
-        { expiresIn: '1h' }              
+        { expiresIn: '1h' }         // Token expiration time (1 hour in this case)  
       );
       console.log('token', token);
       return res.status(200).json({

@@ -1,11 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Extractuploadedfile from './Extractuploadedfile';
-import { pdfjs } from "react-pdf";
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-    "pdfjs-dist/build/pdf.worker.min.js",
-    import.meta.url
-  ).toString();
+
 
 
 

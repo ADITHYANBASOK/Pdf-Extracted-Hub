@@ -16,13 +16,11 @@ function Extractedfiles() {
       }, [allImage,token,extractpdf]);
       const getPdf = async () => {
         if(token && loginid){
-        const result = await axios.get(`http://localhost:4000/extract/Recentlygetextracted-files/${token}`);
-        const result2 = await axios.get(`http://localhost:4000/extract/Allgetextracted-files/${loginid}`);
+        const result = await axios.get(`http://localhost:4000/extract/Recentlygetextracted-files/${token}`);//get recently extracted pdf
+        const result2 = await axios.get(`http://localhost:4000/extract/Allgetextracted-files/${loginid}`);// get All extracted pdf
         console.log(result.data.data);
         setAllImage(result.data.data);
         setExtractpdf(result2.data.data)
-        console.log('tokem',allImage);
-        console.log('tokemIf',extractpdf);
 
       }
       };

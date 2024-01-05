@@ -1,6 +1,6 @@
 import axios from "axios";
 
-
+//downloading pdf function
 const downloadPdf = async (pdfFileName) => {
     try {
       const response = await axios.get(`http://localhost:4000/files/${pdfFileName}`, {
