@@ -75,17 +75,17 @@ function SignUp() {
     <div className="input-box">
 
       <input type="text" placeholder="Name" required="" name='name' onChange={inputchange}/>
-    <span> {formErrors?.name} </span>
+    <span className='error-message'> {formErrors?.name} </span>
     </div>
     <div className="input-box">
 
       <input type="email" placeholder="email" required="" name='email' onChange={inputchange}/>
-     <span>{formErrors?.email} </span>
+     <span className='error-message'>{formErrors?.email} </span>
     </div>
     <div className="input-box">
 
       <input type="password" placeholder="password" required="" name='password' onChange={inputchange}/>
-     <span>  {formErrors?.password}</span>
+     <span className='error-message'>  {formErrors?.password}</span>
     </div>
   
     <button type="submit" onClick={Submit}>SiGN Up</button>

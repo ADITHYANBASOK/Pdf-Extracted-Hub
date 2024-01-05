@@ -81,11 +81,11 @@ function Login() {
             <div className="input-box">
                 <input type="email" name='email' placeholder="email" required onChange={inputchange}
                 />
-                  <span >{formErrors?.email} </span>
+                  <span className='error-message' >{formErrors?.email} </span>
             </div>
             <div className="input-box">
                 <input type="password" name='password' placeholder="password" required onChange={inputchange}/>
-                <span >{formErrors?.password}  </span>
+                <span className='error-message' >{formErrors?.password}  </span>
             </div>
             <div className="forgot-pass">
                 <a href="#">forgot password? </a>

@@ -6,14 +6,16 @@ function Extractuploadedfile(props) {
 
     const [numPages, setNumPages] = useState(null);
     const [selectedPages, setSelectedPages] = useState([]);
-
+ 
+    // Retrieve user token and login ID from local storage
     const token=localStorage.getItem('user_token')
     const loginid=localStorage.getItem('u_login_id')
   
     const onDocumentLoadSuccess = ({ numPages }) => {
       setNumPages(numPages);
     };
-
+ 
+    // Extract filename from the provided PDF file URL
     if(props.pdfFile){
     const url = new URL(props.pdfFile);
     var filename = url.pathname.split('/').pop();
@@ -73,7 +75,7 @@ function Extractuploadedfile(props) {
   
   return (
     <>
-        <div className="pdf-div">
+     <div className="pdf-div">
     <Document file={props.pdfFile} onLoadSuccess={onDocumentLoadSuccess}>
       {Array.from({ length: numPages }, (_, index) => index + 1).map((page) => (
         <div key={page}>

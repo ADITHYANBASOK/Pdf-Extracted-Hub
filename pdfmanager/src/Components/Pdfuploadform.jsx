@@ -97,7 +97,7 @@ function Pdfuploadform() {
           name='title'
           required
           onChange={(e) => setTitle(e.target.value)} />
-        <span>{formErrors?.title}</span>
+        <span className='error-message'>{formErrors?.title}</span>
         <br />
         <input
           type="file"
