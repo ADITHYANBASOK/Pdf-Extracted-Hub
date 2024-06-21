@@ -14,7 +14,12 @@ const LoginRouter = require('./Src/Routers/LoginRouter');
 const app = express()
 
 // Enable CORS and serve files from the 'files' directory
-app.use(cors());
+app.use(cors({
+  origin: 'https://your-frontend-domain.vercel.app', // Replace with your frontend URL
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // If you need to send cookies with requests
+}));
+
 app.use("/files", express.static("files"));
 
 
