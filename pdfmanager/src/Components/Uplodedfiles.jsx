@@ -15,14 +15,14 @@ function Uplodedfiles() {
         getPdf();
       }, []);
       const getPdf = async () => {
-        const result = await axios.get(`http://localhost:4000/upload/get-files/${token}`);
+        const result = await axios.get(`https://pdf-extracted-hub.vercel.app/upload/get-files/${token}`);
         console.log(result.data.data);
         setAllImage(result.data.data);
       };
    
       // Function to set the selected PDF file for display and extraction
       const showPdf = (pdf) => {
-        setPdfFile(`http://localhost:4000/files/${pdf}`)
+        setPdfFile(`https://pdf-extracted-hub.vercel.app/files/${pdf}`)
         console.log("pdf",pdfFile)
       };
   return (

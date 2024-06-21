@@ -26,7 +26,7 @@ function Extractuploadedfile(props) {
 
     const generateNewPdf = async () => {
         try {
-          const response = await fetch(`http://localhost:4000/extract/generate-pdf/${filename}/${token}/${loginid}`, {
+          const response = await fetch(`https://pdf-extracted-hub.vercel.app/extract/generate-pdf/${filename}/${token}/${loginid}`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

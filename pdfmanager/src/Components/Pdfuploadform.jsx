@@ -54,7 +54,7 @@ function Pdfuploadform() {
         console.log(title, file);
     
         const result = await axios.post(
-          `http://localhost:4000/upload/upload-files/${token}/${loginid}`,
+          `https://pdf-extracted-hub.vercel.app/upload/upload-files/${token}/${loginid}`,
           formData,
           {
             headers: { "Content-Type": "multipart/form-data" },

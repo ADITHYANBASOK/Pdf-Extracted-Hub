@@ -43,7 +43,7 @@ function SignUp() {
         if(Object.keys(formErrors).length === 0){
       if (input.name && input.email && input.password) {
 
-    axios.post('http://localhost:4000/SignUp/registration',input).then((response)=>{
+    axios.post('https://pdf-extracted-hub.vercel.app/SignUp/registration',input).then((response)=>{
       console.log("res===========>",response.data);
       if(response.data.success===true){
         // success toast message 

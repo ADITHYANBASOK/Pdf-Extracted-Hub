@@ -16,8 +16,8 @@ function Extractedfiles() {
       }, [allImage,token,extractpdf]);
       const getPdf = async () => {
         if(token && loginid){
-        const result = await axios.get(`http://localhost:4000/extract/Recentlygetextracted-files/${token}`);//get recently extracted pdf
-        const result2 = await axios.get(`http://localhost:4000/extract/Allgetextracted-files/${loginid}`);// get All extracted pdf
+        const result = await axios.get(`https://pdf-extracted-hub.vercel.app/extract/Recentlygetextracted-files/${token}`);//get recently extracted pdf
+        const result2 = await axios.get(`https://pdf-extracted-hub.vercel.app/extract/Allgetextracted-files/${loginid}`);// get All extracted pdf
         console.log(result.data.data);
         setAllImage(result.data.data);
         setExtractpdf(result2.data.data)
@@ -26,7 +26,7 @@ function Extractedfiles() {
       };
 
       const showPdf = (pdf) => {
-        setPdfFile(`http://localhost:4000/files/${pdf}`)
+        setPdfFile(`https://pdf-extracted-hub.vercel.app/files/${pdf}`)
         console.log("pdf",pdfFile)
       };
       const handleDownload = (pdf) => {

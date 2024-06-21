@@ -13,7 +13,7 @@ function AllUploadedpdf() {
       }, [allImage,loginid]);
       const getPdf = async () => {
         if(loginid){
-        const result = await axios.get(`http://localhost:4000/upload/get-Allfiles/${loginid}`);
+        const result = await axios.get(`https://pdf-extracted-hub.vercel.app/upload/get-Allfiles/${loginid}`);
         console.log(result.data.data);
         setAllImage(result.data.data);
     }
