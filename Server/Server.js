@@ -15,7 +15,7 @@ const app = express()
 
 // Enable CORS and serve files from the 'files' directory
 app.use(cors({
-  origin: 'https://your-frontend-domain.vercel.app', // Replace with your frontend URL
+  origin: 'https://pdf-extracted-hub-9a9j.vercel.app', // Replace with your frontend URL
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true, // If you need to send cookies with requests
 }));
