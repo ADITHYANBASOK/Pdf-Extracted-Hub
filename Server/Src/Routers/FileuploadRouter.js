@@ -1,25 +1,43 @@
 const express = require('express')
 const UploadModel = require('../Models/FileuploadModel')
 const multer = require("multer");
+const fs = require('fs');
+const path = require('path');
 
 
 
 
 const UploadRouter = express.Router()
 
+// // Configuring multer for file upload
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//       // Specify the destination directory for storing uploaded files
+//       cb(null, "./files");
+//     },
+//     filename: function (req, file, cb) {
+//       // Generate a unique filename using the current timestamp and the original filename
+//       const uniqueSuffix = Date.now();
+//       cb(null, uniqueSuffix + file.originalname);
+//     },
+//   });
+const filesDir = path.join(__dirname, '../../files');
+if (!fs.existsSync(filesDir)) {
+  fs.mkdirSync(filesDir, { recursive: true });
+}
+
 // Configuring multer for file upload
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      // Specify the destination directory for storing uploaded files
-      cb(null, "./files");
-    },
-    filename: function (req, file, cb) {
-      // Generate a unique filename using the current timestamp and the original filename
-      const uniqueSuffix = Date.now();
-      cb(null, uniqueSuffix + file.originalname);
-    },
-  });
-
+  destination: function (req, file, cb) {
+    // Specify the destination directory for storing uploaded files
+    cb(null, filesDir);
+  },
+  filename: function (req, file, cb) {
+    // Generate a unique filename using the current timestamp and the original filename
+    const uniqueSuffix = Date.now();
+    cb(null, uniqueSuffix + file.originalname);
+  },
+});
 
   const upload = multer({ storage: storage });  // Configuring multer with the specified storage options
 
