@@ -2,12 +2,15 @@ const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const cors = require("cors");
+const dotenv = require('dotenv');
+
 
 const UploadRouter = require('./Src/Routers/FileuploadRouter');
 const ExtractRouter = require('./Src/Routers/ExtractFileRouter');
 const SignUpRouter = require('./Src/Routers/SignUpRouter');
 const LoginRouter = require('./Src/Routers/LoginRouter');
 
+dotenv.config();
 
 
 // Creating an Express app
@@ -52,10 +55,9 @@ app.use('/login',LoginRouter)
 
 
 // MongoDB connection URL
-const mongoDBurl = "mongodb+srv://adithyanbasok:12345@pdf.huhtp9n.mongodb.net/"
 
 // Connecting to MongoDB and starting the server
-mongoose.connect(mongoDBurl).then(() => {
+mongoose.connect(process.env.MONGODB_URI).then(() => {
     app.listen(4000, () => { console.log("server started at http://localhost:4000"); })
 }).catch((error) => {
     console.log(error);
